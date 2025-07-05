@@ -1,0 +1,27 @@
+{{>layouts/header}}
+
+<h1> 게시판 목록 </h1>
+<div style="margin:15px">
+    <form action="/articles" method="post">
+        제목으로 검색 : <input type="text" name="boardSearch">
+        <button type="submit">검색</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">아이디</th>
+        <th scope="col">제목</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#resultObject}}
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td><a href="/articles/{{id}}">{{title}}</a></td>
+    </tr>
+    {{/resultObject}}
+    </tbody>
+</table>
+
+{{>layouts/footer}}
